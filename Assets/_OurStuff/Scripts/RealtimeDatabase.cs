@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class RealtimeDatabase : MonoBehaviour
 {
-    NotificationHandler notificationHandler;
+    public NotificationHandler notificationHandler;
     DatabaseReference _reference;
     [SerializeField] InputField _username;
     [SerializeField] InputField _usernameToRead;

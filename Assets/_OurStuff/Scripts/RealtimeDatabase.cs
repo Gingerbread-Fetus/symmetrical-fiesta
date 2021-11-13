@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using Firebase.Database;
 using UnityEngine.UI;
 
 public class RealtimeDatabase : MonoBehaviour
 {
+    NotificationHandler notificationHandler;
     DatabaseReference _reference;
     [SerializeField] InputField _username;
     [SerializeField] InputField _usernameToRead;
@@ -35,7 +37,27 @@ public class RealtimeDatabase : MonoBehaviour
                 Debug.Log("Adding data failed.");
             }
         });
+
+        // Listen for notifications
+        _reference
+        .Child("User")
+        .Child(user.UserName)
+        .ValueChanged += HandleValueChanged;
     }
+
+	void HandleValueChanged(object sender, ValueChangedEventArgs args)
+	{
+		if( args.DatabaseError != null )
+		{
+			Debug.LogError(args.DatabaseError.Message);
+			return;
+		}
+		// Do something with the data in args.Snapshot
+		if( notificationHandler != null )
+		{
+			notificationHandler.SendNotification("Title", args.Snapshot.ToString());
+		}
+	}
 
     // Load User data from Firebase
     public void DataRead()

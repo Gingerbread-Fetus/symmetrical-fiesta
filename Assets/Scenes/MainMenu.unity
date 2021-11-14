@@ -615,14 +615,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'vazor222 - Code, design
+  m_Text: 'vazor222 - Code, Design
 
-    bluviolets - Modeling, rigging, animation,
-    design
+    bluviolets - Modeling, Rigging, Animation,
+    Design
 
-    yotingo - Code, design
+    yotingo - Code, Design
 
-    Hayden Matthews - Code'
+    Hayden Matthews - Code, UI, Design'
 --- !u!222 &242580965
 CanvasRenderer:
   m_ObjectHideFlags: 0
